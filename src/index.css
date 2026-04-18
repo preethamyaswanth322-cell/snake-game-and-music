@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neon-cyan: #00f3ff;
+  --color-neon-magenta: #ff00ff;
+  --color-neon-green: #39ff14;
+  --color-cyber-black: #0d0d0d;
+  --color-cyber-grey: #1a1a1a;
+
+  --font-cyber: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer utilities {
+  .shadow-neon-cyan {
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.5), 0 0 20px rgba(0, 243, 255, 0.2);
+  }
+  .shadow-neon-magenta {
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.5), 0 0 20px rgba(255, 0, 255, 0.2);
+  }
+  .shadow-neon-green {
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.5), 0 0 20px rgba(57, 255, 20, 0.2);
+  }
+  .text-glow-cyan {
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.8);
+  }
+  .text-glow-magenta {
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
+  }
+  .animate-pulse-fast {
+    animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.scanline::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(0, 243, 255, 0.1);
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+  pointer-events: none;
+  animation: scanline 8s linear infinite;
+}
+
+body {
+  background-color: var(--color-cyber-black);
+  color: #ffffff;
+  font-family: var(--font-cyber);
+  overflow: hidden;
+}
